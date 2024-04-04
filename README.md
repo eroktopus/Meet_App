@@ -1,0 +1,1 @@
+The Meet app utilizes serverless functions to interact with the Google Calendar API. Serverless functions provide a scalable and cost-effective way to fetch event data, process it, and serve it to the client-side application. By using serverless architecture, we can minimize operational overhead and focus on building features that enhance the user experience.
