@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+// App.js
+
+import React, { useState, useEffect } from 'react';
+import CitySearch from './components/CitySearch';
+import EventList from './components/EventList';
+import NumberOfEvents from './components/NumberOfEvents'; 
+import { getEvents } from './api'; 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [events, setEvents] = useState([]);
+  
+  useEffect(() => {
+    // Fetch events from API when the component mounts
+    const fetchData = async () => {
+      const fetchedEvents = await getEvents();
+      setEvents(fetchedEvents);
+    };
+    fetchData();
+  }, []); // Empty dependency array ensures that the effect runs only once
+
+ return (
+   <div className="App">
+     <CitySearch />
+     <EventList events={events} />
+     <NumberOfEvents id="numberOfEvents" /> {/* Pass id as prop */}
+   </div>
+ );
 }
 
 export default App;
