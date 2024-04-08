@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-const CitySearch = ({ allLocations }) => {
+const CitySearch = ({ allLocations, setCurrentCity }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -19,8 +20,13 @@ const CitySearch = ({ allLocations }) => {
   const handleItemClicked = (event) => {
     const value = event.target.textContent;
     setQuery(value);
-    setShowSuggestions(false); // to hide the list
+    setShowSuggestions(false);
+    setCurrentCity(value);
   };
+
+  useEffect(() => {
+    setSuggestions(allLocations);
+  }, [`${allLocations}`]);
 
   return (
     <div id="city-search">
@@ -45,5 +51,11 @@ const CitySearch = ({ allLocations }) => {
     </div>
   );  
 }
+
+// Define PropTypes
+CitySearch.propTypes = {
+  allLocations: PropTypes.array.isRequired,
+  setCurrentCity: PropTypes.func.isRequired
+};
 
 export default CitySearch;
