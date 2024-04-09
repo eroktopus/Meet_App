@@ -29,7 +29,8 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   }, [`${allLocations}`]);
 
   return (
-    <div id="city-search">
+    <div id="city-search-container">  
+    <h4 htmlFor="city">Featured Cities: </h4>
       <input
         type="text"
         className="city"
@@ -41,9 +42,9 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
       {showSuggestions &&
         <ul className="suggestions">
           {suggestions.map((suggestion) => (
-            <li onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
+            <li className="suggestion-item" onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
           ))}
-          <li key='See all cities' onClick={handleItemClicked}>
+          <li className="see-all-cities-btn" key='See all cities' onClick={handleItemClicked}>
             <b>See all cities</b>
           </li>
         </ul>

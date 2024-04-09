@@ -26,13 +26,18 @@ const App = () => {
     fetchData();
   }, [currentCity]);
 
- return (
-   <div className="App">
-    <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-    <EventList events={events} />
-    <NumberOfEvents id="numberOfEvents" /> 
-   </div>
- );
-}
+  return (
+    <div className='app-title'>
+    <h1>meetApp</h1>
+    <div className="App">
+      <div className="box-container">
+        <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+        <EventList events={events} />
+        <NumberOfEvents id="numberOfEvents" />
+      </div>
+    </div>
+    </div>
+  );
+ }
 
 export default App;

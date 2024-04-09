@@ -1,38 +1,143 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  height: 100vh; /* Occupy the full viewport height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App * {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-title {
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #746f6f;
+}
+
+.box-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center; /* Center horizontally */
+  margin-top: 30px;
+}
+
+.city,
+.number-of-events-input,
+.event {
+  width: 250px;
+  margin-bottom: 2.5px; /* Half the previous margin */
+}
+
+.city {
+  background-color: #827c7c;
+}
+
+.number-of-events-input {
+  background-color: #827c7c;
+}
+
+.see-all-cities-button {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.suggestions {
+  background-color: #0a2592;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.suggestion-item:hover {
+  background-color: #0797f7; /* Change background color on hover */
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 5px 0;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 8px 6px 8px 10px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 20px;
+  align-self: center;
+  height: 38px;
+  margin-bottom: 20px;
+}
+
+.city {
+  width: 250px;
+}
+
+#city-search {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  position: relative;
+}
+
+.suggestions {
+  width: 100px;
+  position: absolute;
+  top: 30px;
+  right: 10px; /* Align to the right */
+  z-index: 2;
+  margin: 10px; /* Add padding */
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+}
+
+.suggestions > li {
+  text-align: left;
+  color: white;
+  padding: 10% 5%;
+  background-color: #17088b;
+  cursor: default;
+  border-radius: 8px;
+}
+
+.suggestions > li:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.suggestions > li:hover {
+  background-color: hwb(205 36% 11%);
+}
+
+.event {
+  padding: 10px 10px 35px;
+  margin-bottom: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+
+.details-btn {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.svg-background {
+  position: fixed;
+  bottom: -150px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
 }
