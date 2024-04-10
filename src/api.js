@@ -62,15 +62,18 @@ export const getEvents = async () => {
 
   const token = await getAccessToken();
 
-  if (token) {
-    removeQuery();
-    const url =  `https://dzivmk5t4m.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url/${token}`;
+  const url = `https://dzivmk5t4m.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${token}`;
 
-    const response = await fetch(url);
-    const result = await response.json();
-    if (result) {
-      return result.events;
-    } else return null; 
+  // fetch event data 
+  if (token) {
+      removeQuery();
+      const response = await fetch(url);
+      const result = await response.json();
+      if (result) {
+          // save fetched data to local storage
+          localStorage.setItem("lastEvents", JSON.stringify(result.events));
+          return result.events;
+      } else return null;
   }
 };
 
@@ -84,7 +87,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
     if (!code) {
       const response = await fetch(
-        " https://dzivmk5t4m.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
+        "https://dzivmk5t4m.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url"
       );
       const result = await response.json();
       const { authUrl } = result;

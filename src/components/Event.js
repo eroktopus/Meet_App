@@ -11,7 +11,7 @@ const Event = ({ event }) => {
   };
 
   return (
-    <li>
+    <li className="event">
       <div>{event.summary}</div>
       <div>{startTime}</div>
       <div>{event.location}</div>

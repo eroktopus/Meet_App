@@ -65,7 +65,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid #0797f7;
   font-size: 14px;
   line-height: 20px;
   align-self: center;
@@ -88,9 +88,9 @@ input[type="number"] {
   width: 100px;
   position: absolute;
   top: 30px;
-  right: 10px; /* Align to the right */
+  right: 10px;
   z-index: 2;
-  margin: 10px; /* Add padding */
+  margin: 10px;
   font-size: 14px;
   border-radius: 8px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
