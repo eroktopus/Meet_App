@@ -102,9 +102,9 @@ input[type="number"] {
 }
 
 .suggestions {
-  width: 150 px;
+  width: 120 px;
   position: absolute;
-  top: 30px;
+  top: 120px;
   right: 10px;
   z-index: 2;
   margin: 10px;
