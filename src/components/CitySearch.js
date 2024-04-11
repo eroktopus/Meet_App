@@ -6,11 +6,17 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
+  useEffect(() => {
+    // Sort the allLocations array alphabetically
+    const sortedLocations = allLocations.slice().sort((a, b) => a.localeCompare(b));
+    setSuggestions(sortedLocations);
+  }, [allLocations]);
+
   const handleInputChanged = (event) => {
     const value = event.target.value;
-    const filteredLocations = allLocations ? allLocations.filter((location) => {
+    const filteredLocations = allLocations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-    }) : [];
+    });
 
     setQuery(value);
     setSuggestions(filteredLocations);
@@ -23,10 +29,6 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
     setShowSuggestions(false);
     setCurrentCity(value);
   };
-
-  useEffect(() => {
-    setSuggestions(allLocations);
-  }, [`${allLocations}`]);
 
   return (
     <div id="city-search-container">  
