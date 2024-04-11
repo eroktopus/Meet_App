@@ -1368,6 +1368,11 @@ const mockData = [
   }
  ];
 
+ export const getEvents = () => {
+  // Logic to fetch events from mock data
+  return Promise.resolve(mockData);
+};
+
 export default mockData;
 
 

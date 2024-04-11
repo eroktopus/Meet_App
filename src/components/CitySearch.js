@@ -9,7 +9,6 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   useEffect(() => {
     // Sort the allLocations array alphabetically
     const sortedLocations = allLocations.slice().sort((a, b) => a.localeCompare(b));
-    console.log(sortedLocations); 
     setSuggestions(sortedLocations);
   }, [allLocations]);
 
@@ -32,7 +31,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   };
 
   return (
-    <div id="city-search-container">  
+    <div id="city-search-container" data-testid="app-container">  
     <h4 htmlFor="city">Featured Cities: </h4>
       <input
         type="text"

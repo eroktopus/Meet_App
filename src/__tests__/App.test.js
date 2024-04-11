@@ -7,7 +7,6 @@ describe('<App /> component', () => {
   let AppDOM;
   beforeEach(() => {
     AppDOM = render(<App />).container.firstChild;
-    console.log(AppDOM);
   })
 
   test('renders EventList', () => {
