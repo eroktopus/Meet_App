@@ -133,7 +133,7 @@ input[type="number"] {
 
 .event {
   padding: 10px 10px 35px;
-  margin-top: 50;
+  margin-top: 50px;
   margin-bottom: 10px;
   background-color: #497fbb;
   text-align: left;
@@ -168,10 +168,8 @@ input[type="number"] {
   border-radius: 4px;
   padding: 10px;
   margin-top: 10px;
-  margin-bottom: 20px;
 }
 
 .details-section {
-  margin-top: 50;
-  top: 50px;
+  margin-top: 10px;
 }

@@ -12,10 +12,9 @@ test('An event element is collapsed by default', async () => {
   // if your event element has a different selector, use it instead of .event
   await page.waitForSelector('.event');
 
-  // if your event's details have a different selector, use it instead of .event .details
-  const eventDetails = await page.$('.event .details');
+  const detailsSection = await page.$('.event .details');
 
-  expect(eventDetails).toBeNull();
+  expect(detailsSection).toBeNull();
   browser.close();
 });
 

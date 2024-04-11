@@ -23,6 +23,7 @@ const checkToken = async (accessToken) => {
   return result;
 };
 
+
 const removeQuery = () => {
   let newurl;
   if (window.history.pushState && window.location.pathname) {

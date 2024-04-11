@@ -9,6 +9,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   useEffect(() => {
     // Sort the allLocations array alphabetically
     const sortedLocations = allLocations.slice().sort((a, b) => a.localeCompare(b));
+    console.log(sortedLocations); 
     setSuggestions(sortedLocations);
   }, [allLocations]);
 

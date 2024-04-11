@@ -4,10 +4,12 @@ import CitySearch from '../components/CitySearch';
 import App from '../App';
 import { extractLocations, getEvents } from '../api';
 
+const allLocations = ['Berlin, Germany', 'London, UK'];
+
 describe('<CitySearch /> component', () => {
   let CitySearchComponent;
   beforeEach(() => {
-    CitySearchComponent = render(<CitySearch allLocations={[]} setCurrentCity={() => {}} />);
+    CitySearchComponent = render(<CitySearch allLocations={allLocations} setCurrentCity={() => {}} />);
   });
   
   test('renders text input', () => {
@@ -76,7 +78,7 @@ describe('<CitySearch /> component', () => {
       const AppComponent = render(<App />);
       const AppDOM = AppComponent.container.firstChild;
   
-      const CitySearchDOM = AppDOM.querySelector('#city-search');
+      const CitySearchDOM = AppDOM.querySelector('#city-search-container');
       const cityTextBox = within(CitySearchDOM).queryByRole('textbox');
       await user.click(cityTextBox);
   

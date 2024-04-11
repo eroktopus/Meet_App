@@ -7,14 +7,15 @@ describe('<App /> component', () => {
   let AppDOM;
   beforeEach(() => {
     AppDOM = render(<App />).container.firstChild;
+    console.log(AppDOM);
   })
 
-  test('renders list of events', () => {
+  test('renders EventList', () => {
     expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
   });
 
   test('render CitySearch', () => {
-    expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
+    expect(AppDOM.querySelector('#city-search-container')).toBeInTheDocument();
   });
   
   test('render NumberOfEvents', () => {
@@ -27,7 +28,7 @@ describe('<App /> component', () => {
       const AppComponent = render(<App />);
       const AppDOM = AppComponent.container.firstChild;
   
-      const CitySearchDOM = AppDOM.querySelector('#city-search');
+      const CitySearchDOM = AppDOM.querySelector('#city-search-container');
       const CitySearchInput = within(CitySearchDOM).queryByRole('textbox');
   
       await user.type(CitySearchInput, "Berlin");

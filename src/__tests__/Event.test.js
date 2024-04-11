@@ -33,7 +33,7 @@ describe('<Event /> component', () => {
     const user = userEvent.setup();
     const button = EventComponent.queryByText('Show Details');
     await user.click(button);
-    const details = EventComponent.container.querySelector('.details');
+    const details = EventComponent.container.querySelector('.details-section');
     expect(details).toBeInTheDocument();
   });
 
