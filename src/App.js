@@ -28,14 +28,16 @@ const App = () => {
 
   return (
     <div className='app-title'>
-    <h1>meetApp</h1>
-    <div className="App">
-      <div className="box-container">
-        <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-        <EventList events={events} />
-        <NumberOfEvents id="numberOfEvents" />
+      <h1>meetApp</h1>
+      <div className="App">
+        <div className="box-container">
+          <div className="controls-container">
+            <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+            <NumberOfEvents id="numberOfEvents" />
+          </div>
+          <EventList events={events} />
+        </div>
       </div>
-    </div>
     </div>
   );
  }

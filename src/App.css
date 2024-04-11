@@ -20,26 +20,42 @@ body {
 .box-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
+  align-items: center;
   margin-top: 30px;
 }
 
+.controls-container {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  justify-content: center; /* Center horizontally */
+  margin-bottom: 10px; /* Add margin between controls and event list */
+}
+
 .city,
-.number-of-events-input,
+.number-of-events-input {
+  width: 240px; /* Adjust width as needed */
+  background-color: inherit;
+  margin-right: 20px; /* Add margin to create space between controls */
+  background-color: #827c7c;
+}
+
+.EventList {
+  width: 500px; /* Match width of cities */
+}
+
 .event {
-  width: 250px;
-  margin-bottom: 2.5px; /* Half the previous margin */
+  width: 500px;
 }
 
 .city {
-  background-color: #827c7c;
+  background-color: transparent;
 }
 
 .number-of-events-input {
-  background-color: #827c7c;
+  background-color: transparent;
 }
-
-.see-all-cities-button {
+*/ .see-all-cities-button {
   color: white;
 }
 
@@ -65,7 +81,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #0797f7;
+  border: 1px solid #0a2592;
   font-size: 14px;
   line-height: 20px;
   align-self: center;
@@ -74,7 +90,7 @@ input[type="number"] {
 }
 
 .city {
-  width: 250px;
+  width: 220px;
 }
 
 #city-search {
@@ -117,8 +133,9 @@ input[type="number"] {
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
+  background-color: #497fbb;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 1px solid #0a2592;
   border-radius: 4px;
   position: relative;
 }
@@ -140,4 +157,13 @@ input[type="number"] {
   width: 100%;
   height: auto;
   z-index: -1;
+}
+
+.event-details-button {
+  color: white;
+  background-color: #0a2592;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10;
 }
