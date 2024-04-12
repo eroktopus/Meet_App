@@ -11,6 +11,7 @@ const App = () => {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
+  const [infoAlert, setInfoAlert] = useState("");
   
 
   const fetchData = async () => {
@@ -32,7 +33,8 @@ const App = () => {
       <div className="App">
         <div className="box-container">
           <div className="controls-container">
-            <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+            {/* Pass setInfoAlert as a prop to CitySearch */}
+            <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
             <NumberOfEvents id="numberOfEvents" />
           </div>
           <EventList events={events} />
@@ -40,6 +42,6 @@ const App = () => {
       </div>
     </div>
   );
- }
+}
 
 export default App;
