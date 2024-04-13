@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
-import { InfoAlert } from './components/Alert';
-import CitySearch from './components/CitySearch';
-import NumberOfEvents from './components/NumberOfEvents';
-import EventList from './components/EventList';
+import React, { Component } from 'react';
 
-// Define class components outside of the functional component
-class AlertComponent extends React.Component {
+class Alert extends Component {
   constructor(props) {
     super(props);
     this.color = null;
@@ -26,37 +21,39 @@ class AlertComponent extends React.Component {
       margin: "10px 0",
       padding: "10px"
     };
+  };
+
+  render() {
+    return (
+      <div className="Alert">
+        <p style={this.getStyle()}>{this.props.text}</p>
+      </div>
+    );
   }
 }
 
-class InfoAlertComponent extends AlertComponent {
+class InfoAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'rgb(0, 0, 255)'; // blue
-    this.bgColor = 'rgb(220, 220, 255)'; // light blue
+    this.color = 'rgb(0, 0, 255)';
+    this.bgColor = 'rgb(220, 220, 255)';
   }
 }
 
-const App = () => {
-  const [allLocations, setAllLocations] = useState([]);
-  const [currentNOE, setCurrentNOE] = useState(32);
-  const [events, setEvents] = useState([]);
-  const [currentCity, setCurrentCity] = useState("See all cities");
-  const [infoAlert, setInfoAlert] = useState("");
+class ErrorAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.color = 'rgb(255, 0, 0)';
+    this.bgColor = 'rgb(255, 204, 203)';
+  }
+}
 
-  return (
-    <div className="App">
-      <div className="alerts-container">
-        {infoAlert.length ? <InfoAlertComponent text={infoAlert} /> : null}
-      </div>
-      <CitySearch
-        allLocations={allLocations}
-        setCurrentCity={setCurrentCity}
-        setInfoAlert={setInfoAlert} />
-      <NumberOfEvents setCurrentNOE={setCurrentNOE} />
-      <EventList events={events} />
-    </div>
-  );
-};
+class WarningAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.color = 'rgb(255, 211, 0)';
+    this.bgColor = 'rgb(255, 255, 191)';
+  }
+}
 
 export { InfoAlert, ErrorAlert, WarningAlert };
