@@ -22,7 +22,7 @@ const Event = ({ event }) => {
         {showDetails ? "Hide Details" : "Show Details"}
       </button>
       {showDetails && (
-        <div className="details-section">Details section content goes here</div>
+       <div className="details-section">{event.description}</div>
       )}
     </li>
   );
