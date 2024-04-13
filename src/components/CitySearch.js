@@ -67,8 +67,8 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
 // Define PropTypes
 CitySearch.propTypes = {
   allLocations: PropTypes.array.isRequired,
-  setCurrentCity: PropTypes.func.isRequired
-  // setInfoAlert: PropTypes.func.isRequired // Add setInfoAlert to PropTypes
+  setCurrentCity: PropTypes.func.isRequired,
+  setInfoAlert: PropTypes.func.isRequired
 };
 
 

@@ -9,8 +9,14 @@ const allLocations = ['Berlin, Germany', 'London, UK'];
 describe('<CitySearch /> component', () => {
   let CitySearchComponent;
   beforeEach(() => {
-    CitySearchComponent = render(<CitySearch allLocations={allLocations} setCurrentCity={() => {}} />);
-  });
+    CitySearchComponent = render(
+        <CitySearch
+            allLocations={allLocations}
+            setCurrentCity={() => {}}
+            setInfoAlert={() => {}} // Add setInfoAlert prop
+        />
+    );
+});
   
   test('renders text input', () => {
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
