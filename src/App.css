@@ -1,8 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  height: 100vh; /* Occupy the full viewport height */
+  text-align: center;
+  padding: 2% 5%;
 }
 
 .App * {
