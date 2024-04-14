@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { InfoAlert, ErrorAlert } from './components/Alert';
-import CitySearch from './components/CitySearch';
-import NumberOfEvents from './components/NumberOfEvents'; // Import NumberOfEvents component
-import EventList from './components/EventList';
-import { getEvents, extractLocations } from './api';
+import React, { useState, useEffect } from "react";
+import { InfoAlert, ErrorAlert } from "./components/Alert";
+import CitySearch from "./components/CitySearch";
+import NumberOfEvents from "./components/NumberOfEvents"; // Import NumberOfEvents component
+import EventList from "./components/EventList";
+import { getEvents, extractLocations } from "./api";
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
   const [events, setEvents] = useState([]);
@@ -18,35 +18,39 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       const allEvents = await getEvents();
-      const filteredEvents = currentCity === "See all cities" ?
-        allEvents :
-        allEvents.filter(event => event.location === currentCity);
+      const filteredEvents =
+        currentCity === "See all cities"
+          ? allEvents
+          : allEvents.filter((event) => event.location === currentCity);
       setEvents(filteredEvents.slice(0, currentNOE));
       setAllLocations(extractLocations(allEvents));
     };
     fetchData();
   }, [currentCity, currentNOE]);
-  
+
   return (
-    <div className='app-title'>
+    <div className="App">
       <h1>meetApp</h1>
-      <div className="App">
-        <div className="box-container">
-          <div className="alerts-container">
-            {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
-            {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-          </div>
-          <div className="controls-container">
-            <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
-            {/* Render NumberOfEvents component with props */}
-            <NumberOfEvents id="unique-id" setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
-          </div>
-          <EventList events={events} />
-        </div>
+      <h3>Choose your nearest city to see the latest events!</h3>
+      <div className="alerts-container">
+        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
       </div>
+      <div className="search-and-events-container">
+        <CitySearch
+          allLocations={allLocations}
+          setCurrentCity={setCurrentCity}
+          setInfoAlert={setInfoAlert}
+        />
+        <NumberOfEvents
+          id="unique-id"
+          setCurrentNOE={setCurrentNOE}
+          setErrorAlert={setErrorAlert}
+        />
+      </div>
+      <EventList events={events} />
     </div>
   );
-}
+};
 
 export default App;
-

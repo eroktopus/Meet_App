@@ -14,7 +14,6 @@ const Event = ({ event }) => {
     <li className="event">
       <div className="event-info">
         <div className="city">{event.location}</div>
-        <div className="number-of-events-input">Number of Events</div>
       </div>
       <div>{event.summary}</div>
       <div>{startTime}</div>
@@ -22,7 +21,7 @@ const Event = ({ event }) => {
         {showDetails ? "Hide Details" : "Show Details"}
       </button>
       {showDetails && (
-       <div className="details-section">{event.description}</div>
+        <div className="details-section">{event.description}</div>
       )}
     </li>
   );
