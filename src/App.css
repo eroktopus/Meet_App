@@ -17,22 +17,42 @@ body {
   background-color: #746f6f;
 }
 
-h1 {
-  padding: 10px;
-  text-align: left;
-}
+@media (min-width: 479px) {
+  h1 {
+    position: relative;
+    margin-top: 20px;
+    margin-right: 370px;
+  }
 
-h3 {
-  position: absolute;
-  top: 55px;
-  left: 637px;
+  h3 {
+    position: relative;
+    margin-top: 20px;
+    margin-right: 3000;
+  }
+
+  .event {
+    width: 10%; /* Adjust width for larger screens */
+    max-width: 500px; /* Add max-width for larger screens */
+    margin-top: 200px; /* Adjust margin top for larger screens */
+  }
+
+  .city {
+    width: calc(100% - 40px); /* Take up full width with margin */
+    margin-right: 100px; /* Remove right margin for smaller screens */
+    margin-bottom: 20px; /* Add bottom margin for spacing */
+  }
+
+  .number-of-events-container {
+    margin-right: 100px; /* Remove right margin for smaller screens */
+  }
 }
 
 .search-and-events-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 100px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .city {
@@ -121,7 +141,8 @@ input[type="number"] {
 }
 
 .event {
-  width: 500px;
+  width: 90%; /* Adjust width for mobile devices */
+  max-width: 500px;
   padding: 10px;
   margin: 0 auto;
   background-color: #497fbb;

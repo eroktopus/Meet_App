@@ -31,7 +31,6 @@ const NumberOfEvents = ({ id, setCurrentNOE, setErrorAlert }) => {
         className="number-of-events-input"
         value={numberOfEvents} // Ensure the value is always a string
         onChange={handleInputChange}
-        ç
       />
     </div>
   );
