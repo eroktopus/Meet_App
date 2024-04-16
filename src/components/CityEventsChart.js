@@ -25,7 +25,7 @@ const CityEventsChart = ({ allLocations, events }) => {
 
   useEffect(() => {
     setData(getData());
-  }, [allLocations, events]); // Include allLocations and events as dependencies
+  }, [allLocations, events, getData]); // Include getData in the dependency array
 
   return (
     <ResponsiveContainer width="99%" height={400}>
