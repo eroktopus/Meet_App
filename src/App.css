@@ -52,6 +52,7 @@ body {
   justify-content: center;
   margin-top: 100px;
   margin-bottom: 20px;
+  margin-right: 20px;
   flex-wrap: wrap;
 }
 
@@ -83,7 +84,7 @@ body {
 }
 
 .number-of-events-container {
-  margin-right: 100px;
+  margin-right: 75px;
 }
 
 .number-of-events-title {

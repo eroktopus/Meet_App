@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Alert extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class Alert extends Component {
       textAlign: "center",
       fontSize: "12px",
       margin: "10px 0",
-      padding: "10px"
+      padding: "10px",
     };
   };
 
@@ -35,19 +35,24 @@ class Alert extends Component {
 class InfoAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'rgb(0, 0, 255)';
-    this.bgColor = 'rgb(220, 220, 255)';
+    this.color = "rgb(0, 0, 255)";
+    this.bgColor = "rgb(220, 220, 255)";
   }
 }
 
 class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = 'rgb(255, 0, 0)';
-    this.bgColor = 'rgb(255, 204, 203)';
+    this.color = "rgb(255, 0, 0)";
+    this.bgColor = "rgb(255, 204, 203)";
   }
 }
 
-
-
-export { InfoAlert, ErrorAlert };
+class WarningAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.color = "rgb(34,139,34)";
+    this.bgColor = "rgb(34, 220, 220)";
+  }
+}
+export { Alert, InfoAlert, ErrorAlert, WarningAlert };
