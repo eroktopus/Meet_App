@@ -209,11 +209,13 @@ input[type="number"] {
 @media (max-width: 768px) {
   .charts-container {
     grid-template-columns: 1fr;
+    padding: 0;
   }
 }
 
 .container-wrapper {
-  margin-top: -40px; /* Adjust the value as needed to move the container up */
+  margin-top: -40px;
+  padding: 0 20px;
 }
 
 .event-genres-title {
