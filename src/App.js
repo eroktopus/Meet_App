@@ -60,8 +60,8 @@ const App = () => {
         />
       </div>
       <div className="charts-container">
-        <EventGenresChart events={events} />
         <CityEventsChart allLocations={allLocations} events={events} />
+        <EventGenresChart events={events} />
       </div>
       <EventList events={events} />
     </div>
