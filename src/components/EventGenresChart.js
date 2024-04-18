@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   PieChart,
   Pie,
@@ -6,9 +6,11 @@ import {
   Cell,
   Tooltip,
   Sector,
+  Legend,
+  Line,
 } from "recharts";
 
-const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"]; // Define genres array
+const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"];
 
 const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
@@ -79,6 +81,26 @@ const EventGenresChart = ({ events }) => {
               />
             ))}
           </Pie>
+          <Legend
+            className="legend-titles"
+            verticalAlign="bottom"
+            height={36}
+            wrapperStyle={{
+              filter: "brightness(1.1)", // Apply brightness filter
+            }}
+          />
+          <Line
+            name="pv of pages"
+            type="monotone"
+            dataKey="pv"
+            stroke="#8884d8"
+          />
+          <Line
+            name="uv of pages"
+            type="monotone"
+            dataKey="uv"
+            stroke="#82ca9d"
+          />
         </PieChart>
       </ResponsiveContainer>
     </div>
