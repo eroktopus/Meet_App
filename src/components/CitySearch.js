@@ -7,7 +7,6 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
-    // Sort the allLocations array alphabetically
     const sortedLocations = allLocations
       .slice()
       .sort((a, b) => a.localeCompare(b));
@@ -28,7 +27,7 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     let infoText;
     if (filteredLocations.length === 0) {
       infoText =
-        "We can not find the city you are looking for. Please try another city";
+        "We cannot find the city you are looking for. Please try another city.";
     } else {
       infoText = "";
     }
@@ -45,11 +44,10 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
 
   return (
     <div id="city-search-container" data-testid="app-container">
-      <h4 className="city-search-title" htmlFor="city">
-        Featured Cities:{" "}
-      </h4>
+      <h4 className="city-search-title">Featured Cities:</h4>
       <input
         type="text"
+        id="city-textbox" // Add an id attribute here
         className="city"
         placeholder="Search for a city"
         value={query}
@@ -67,11 +65,7 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
               {suggestion}
             </li>
           ))}
-          <li
-            className="see-all-cities-btn"
-            key="See all cities"
-            onClick={handleItemClicked}
-          >
+          <li className="see-all-cities-btn" onClick={handleItemClicked}>
             <b>See all cities</b>
           </li>
         </ul>
@@ -80,9 +74,8 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   );
 };
 
-// Define PropTypes
 CitySearch.propTypes = {
-  allLocations: PropTypes.array.isRequired,
+  allLocations: PropTypes.arrayOf(PropTypes.string).isRequired,
   setCurrentCity: PropTypes.func.isRequired,
   setInfoAlert: PropTypes.func.isRequired,
 };

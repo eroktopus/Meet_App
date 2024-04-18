@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 
 const NumberOfEvents = ({ id, setCurrentNOE, setErrorAlert }) => {
-  // Define id as a prop
-
   const [numberOfEvents, setNumberOfEvents] = useState("32");
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    console.log("New value:", value);
     let infoText;
     if (isNaN(value) || value <= 0) {
       infoText = "Only positive numbers are allowed";
     } else {
       infoText = "";
-      console.log("Setting current NOE to:", value);
-      setCurrentNOE(value);
-      setNumberOfEvents(value); // Update the value of numberOfEvents directly
+      setCurrentNOE(value); // Update the value of current number of events
+      setNumberOfEvents(value); // Update the value of numberOfEvents with the new value
     }
     setErrorAlert(infoText);
   };
@@ -29,7 +25,7 @@ const NumberOfEvents = ({ id, setCurrentNOE, setErrorAlert }) => {
         type="text"
         id="number-of-events-input"
         className="number-of-events-input"
-        value={numberOfEvents} // Ensure the value is always a string
+        value={numberOfEvents}
         onChange={handleInputChange}
       />
     </div>

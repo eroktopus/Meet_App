@@ -148,7 +148,7 @@ input[type="number"] {
   margin: 0 auto;
   background-color: #497fbb;
   text-align: left;
-  border: 1px solid #0a2592;
+  border: 1px solid 0;
   border-radius: 4px;
   position: relative;
 }
@@ -214,4 +214,8 @@ input[type="number"] {
 
 .container-wrapper {
   margin-top: -40px; /* Adjust the value as needed to move the container up */
+}
+
+.event-genres-title {
+  margin-top: 60px; /* Adjust the margin top value according to your preference */
 }

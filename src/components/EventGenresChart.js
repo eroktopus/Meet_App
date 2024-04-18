@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
-import { PieChart, Pie, ResponsiveContainer, Cell, Sector } from "recharts";
+import {
+  PieChart,
+  Pie,
+  ResponsiveContainer,
+  Cell,
+  Tooltip,
+  Sector,
+} from "recharts";
 
-const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"];
+const genres = ["React", "JavaScript", "Node", "jQuery", "Angular"]; // Define genres array
 
 const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
@@ -29,7 +36,7 @@ const EventGenresChart = ({ events }) => {
     setActiveIndex(null);
   };
 
-  const colors = ["#265BA4", "#FF7F0E", "#2CA02C", "#9467BD", "#D62728"];
+  const colors = ["#265BA4", "#497fbb", "blue", "#163676 ", "#A3D9EE"];
 
   const renderActiveShape = (props) => {
     const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } =
@@ -51,8 +58,10 @@ const EventGenresChart = ({ events }) => {
 
   return (
     <div className="container-wrapper">
+      <h3 className="event-genres-title">Event Genres</h3>
       <ResponsiveContainer width="99%" height={400}>
-        <PieChart>
+        <PieChart style={{ marginTop: "-30px" }}>
+          <Tooltip />
           <Pie
             data={data}
             dataKey="value"
