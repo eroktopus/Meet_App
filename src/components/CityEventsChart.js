@@ -63,7 +63,7 @@ const CityEventsChart = ({ allLocations, events }) => {
             dataKey="count"
             name="Number of Events"
             allowDecimals={false}
-            tick={{ fontSize: 14, fill: "white", fontWeight: "bold" }}
+            tick={{ fontSize: 14, fill: "white" }}
           />
           <Tooltip cursor={{ strokeDasharray: "3 3" }} />
           <Scatter name="A school" data={data} fill="blue" />
