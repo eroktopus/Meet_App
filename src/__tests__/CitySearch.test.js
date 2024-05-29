@@ -42,7 +42,7 @@ describe("<CitySearch /> component", () => {
     const user = userEvent.setup();
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent = render(
+    CitySearchComponent.rerender(
       <CitySearch
         allLocations={allLocations}
         setCurrentCity={() => {}}
@@ -51,9 +51,7 @@ describe("<CitySearch /> component", () => {
     );
 
     // user types "Berlin" in city textbox
-    const cityTextBox = CitySearchComponent.getByRole("textbox", {
-      id: "city-textbox",
-    }); // Scope to textbox with id
+    const cityTextBox = CitySearchComponent.getByRole("textbox");
     await user.type(cityTextBox, "Berlin");
 
     // filter allLocations to locations matching "Berlin"
@@ -78,7 +76,11 @@ describe("<CitySearch /> component", () => {
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
     CitySearchComponent.rerender(
-      <CitySearch allLocations={allLocations} setCurrentCity={() => {}} />
+      <CitySearch
+        allLocations={allLocations}
+        setCurrentCity={() => {}}
+        setInfoAlert={() => {}}
+      />
     );
 
     const cityTextBox = CitySearchComponent.queryByRole("textbox");

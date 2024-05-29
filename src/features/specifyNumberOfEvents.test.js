@@ -39,18 +39,20 @@ defineFeature(feature, (test) => {
     given("a user has specified the number of events", async () => {
       const user = userEvent.setup();
       AppComponent = render(<App />);
-      const NumberOfEventsDOM = document.querySelector("#unique-id"); // Query the container div
+      const NumberOfEventsDOM =
+        AppComponent.container.querySelector("#unique-id"); // Query the container div
       const NumberOfEventsInput =
-        within(NumberOfEventsDOM).queryByRole("textbox"); // Query the input element
+        within(NumberOfEventsDOM).getByRole("spinbutton"); // Use spinbutton for numeric input
 
-      // Clear the input value
+      // Clear the input value manually before typing the new value
       await user.clear(NumberOfEventsInput);
-      // Wait for the input value to be cleared before typing the new value
-      await waitFor(() => {
-        expect(NumberOfEventsInput).toHaveValue("");
-      });
-      // Type the desired value
+      NumberOfEventsInput.value = ""; // Manually clear the input
       await user.type(NumberOfEventsInput, "10");
+
+      // Wait for the input value to be updated
+      await waitFor(() => {
+        expect(NumberOfEventsInput).toHaveValue(10); // Expect the number to be 10
+      });
     });
 
     when("the user views the events section", () => {

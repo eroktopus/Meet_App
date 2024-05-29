@@ -17,28 +17,29 @@ describe("<NumberOfEvents /> component", () => {
     );
   });
 
-  test("contains element with role 'textbox'", () => {
-    // Ensure that the component renders an input field with the role 'textbox'
-    const numberTextBox = NumberOfEventsComponent.getByRole("textbox");
+  test("contains element with role 'spinbutton'", () => {
+    // Ensure that the component renders an input field with the role 'spinbutton'
+    const numberTextBox = NumberOfEventsComponent.getByRole("spinbutton");
     expect(numberTextBox).toBeInTheDocument();
   });
 
   test("32 events are rendered as default", () => {
-    // Ensure that the default value of the input field is "32"
-    expect(NumberOfEventsComponent.getByRole("textbox")).toHaveValue("32");
+    // Ensure that the default value of the input field is 32
+    expect(NumberOfEventsComponent.getByRole("spinbutton")).toHaveValue(32);
   });
 
   test("value of number of events updates correctly when user types in textbox", async () => {
     // Get the input field
-    const numberOfEvents = NumberOfEventsComponent.getByRole("textbox");
+    const numberOfEvents = NumberOfEventsComponent.getByRole("spinbutton");
 
-    // Simulate user typing "10" into the input field
+    // Manually set the input value to an empty string before typing the new value
+    numberOfEvents.value = "";
     await userEvent.type(numberOfEvents, "10");
 
     // Wait for the state update to complete
     await waitFor(() => {
-      // Ensure that the input field now has the value "10"
-      expect(numberOfEvents).toHaveValue("10");
+      // Ensure that the input field now has the value 10
+      expect(numberOfEvents).toHaveValue(10);
     });
   });
 });
